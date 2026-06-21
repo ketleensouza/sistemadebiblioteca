@@ -49,27 +49,10 @@ public class Exemplar {
         this.status = status;
     }
 
-    /**
-     * Construtor com todos os parâmetros.
-     *
-     * @param id        ID do exemplar
-     * @param isbnLivro ISBN do livro
-     * @param status    Status do exemplar
-     */
-    public Exemplar(Long id, String isbnLivro, StatusExemplar status) {
-        this.id = id;
-        this.isbnLivro = isbnLivro;
-        this.status = status;
-    }
-
     // Getters e Setters
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getIsbnLivro() {

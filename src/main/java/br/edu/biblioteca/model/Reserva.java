@@ -59,31 +59,10 @@ public class Reserva {
         this.status = StatusReserva.RESERVADO;
     }
 
-    /**
-     * Construtor com todos os parâmetros.
-     *
-     * @param id         ID da reserva
-     * @param usuarioId  ID do usuário
-     * @param isbnLivro  ISBN do livro
-     * @param dataReserva Data da reserva
-     * @param status     Status da reserva
-     */
-    public Reserva(Long id, Long usuarioId, String isbnLivro, LocalDate dataReserva, StatusReserva status) {
-        this.id = id;
-        this.usuarioId = usuarioId;
-        this.isbnLivro = isbnLivro;
-        this.dataReserva = dataReserva;
-        this.status = status;
-    }
-
     // Getters e Setters
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Long getUsuarioId() {

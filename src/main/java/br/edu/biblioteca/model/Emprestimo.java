@@ -55,36 +55,10 @@ public class Emprestimo {
         this.status = "ATIVO";
     }
 
-    /**
-     * Construtor com todos os parâmetros.
-     *
-     * @param id              ID do empréstimo
-     * @param usuarioId       ID do usuário
-     * @param exemplarId      ID do exemplar
-     * @param dataEmprestimo  Data do empréstimo
-     * @param dataPrevista    Data prevista de devolução
-     * @param dataDevolucao   Data da devolução
-     * @param status          Status do empréstimo
-     */
-    public Emprestimo(Long id, Long usuarioId, Long exemplarId, LocalDate dataEmprestimo,
-                      LocalDate dataPrevista, LocalDate dataDevolucao, String status) {
-        this.id = id;
-        this.usuarioId = usuarioId;
-        this.exemplarId = exemplarId;
-        this.dataEmprestimo = dataEmprestimo;
-        this.dataPrevista = dataPrevista;
-        this.dataDevolucao = dataDevolucao;
-        this.status = status;
-    }
-
     // Getters e Setters
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Long getUsuarioId() {

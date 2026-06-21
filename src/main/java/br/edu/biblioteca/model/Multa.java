@@ -48,31 +48,10 @@ public class Multa {
         this.quitada = false;
     }
 
-    /**
-     * Construtor com todos os parâmetros.
-     *
-     * @param id          ID da multa
-     * @param emprestimoId ID do empréstimo
-     * @param valor       Valor da multa
-     * @param diasAtraso  Número de dias em atraso
-     * @param quitada     Se a multa foi quitada
-     */
-    public Multa(Long id, Long emprestimoId, BigDecimal valor, Integer diasAtraso, Boolean quitada) {
-        this.id = id;
-        this.emprestimoId = emprestimoId;
-        this.valor = valor;
-        this.diasAtraso = diasAtraso;
-        this.quitada = quitada;
-    }
-
     // Getters e Setters
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Long getEmprestimoId() {

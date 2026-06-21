@@ -48,31 +48,10 @@ public class Notificacao {
         this.lida = false;
     }
 
-    /**
-     * Construtor com todos os parâmetros.
-     *
-     * @param id       ID da notificação
-     * @param usuarioId ID do usuário
-     * @param mensagem  Mensagem da notificação
-     * @param data      Data da notificação
-     * @param lida      Se a notificação foi lida
-     */
-    public Notificacao(Long id, Long usuarioId, String mensagem, LocalDateTime data, Boolean lida) {
-        this.id = id;
-        this.usuarioId = usuarioId;
-        this.mensagem = mensagem;
-        this.data = data;
-        this.lida = lida;
-    }
-
     // Getters e Setters
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Long getUsuarioId() {

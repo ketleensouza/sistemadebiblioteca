@@ -32,25 +32,10 @@ public class Autor {
         this.nome = nome;
     }
 
-    /**
-     * Construtor com todos os parâmetros.
-     *
-     * @param id   ID do autor
-     * @param nome Nome do autor
-     */
-    public Autor(Long id, String nome) {
-        this.id = id;
-        this.nome = nome;
-    }
-
     // Getters e Setters
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getNome() {

@@ -52,29 +52,10 @@ public class Usuario {
         this.email = email;
     }
 
-    /**
-     * Construtor com todos os parâmetros.
-     *
-     * @param id    ID do usuário
-     * @param nome  Nome do usuário
-     * @param tipo  Tipo de usuário
-     * @param email Email do usuário
-     */
-    public Usuario(Long id, String nome, TipoUsuario tipo, String email) {
-        this.id = id;
-        this.nome = nome;
-        this.tipo = tipo;
-        this.email = email;
-    }
-
     // Getters e Setters
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getNome() {

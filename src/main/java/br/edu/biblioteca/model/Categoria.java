@@ -32,25 +32,10 @@ public class Categoria {
         this.nome = nome;
     }
 
-    /**
-     * Construtor com todos os parâmetros.
-     *
-     * @param id   ID da categoria
-     * @param nome Nome da categoria
-     */
-    public Categoria(Long id, String nome) {
-        this.id = id;
-        this.nome = nome;
-    }
-
     // Getters e Setters
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getNome() {

@@ -60,34 +60,10 @@ public class Livro {
         this.ano = ano;
     }
 
-    /**
-     * Construtor com todos os parâmetros.
-     *
-     * @param isbn           ISBN do livro
-     * @param titulo         Título do livro
-     * @param ano            Ano de publicação
-     * @param categorias     Conjunto de categorias
-     * @param autores        Conjunto de autores
-     * @param palavrasChave  Palavras-chave para busca
-     */
-    public Livro(String isbn, String titulo, Integer ano, Set<Categoria> categorias,
-                 Set<Autor> autores, String palavrasChave) {
-        this.isbn = isbn;
-        this.titulo = titulo;
-        this.ano = ano;
-        this.categorias = categorias;
-        this.autores = autores;
-        this.palavrasChave = palavrasChave;
-    }
-
     // Getters e Setters
 
     public String getIsbn() {
         return isbn;
-    }
-
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
     }
 
     public String getTitulo() {
