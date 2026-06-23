@@ -4,7 +4,6 @@ import br.edu.biblioteca.structures.Vetor;
 import br.edu.biblioteca.structures.ArvoreBST;
 import br.edu.biblioteca.model.Emprestimo;
 import br.edu.biblioteca.model.Exemplar;
-import br.edu.biblioteca.model.Livro;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
