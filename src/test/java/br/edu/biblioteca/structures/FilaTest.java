@@ -52,9 +52,9 @@ public class FilaTest {
 
     @Test
     public void testFIFO() {
-        fila.enqueue(1);
-        fila.enqueue(2);
-        fila.enqueue(3);
+        fila.enqueue("1");
+        fila.enqueue("2");
+        fila.enqueue("3");
         
         assertEquals("1", fila.dequeue().toString());
         assertEquals("2", fila.dequeue().toString());
