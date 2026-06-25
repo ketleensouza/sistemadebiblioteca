@@ -163,7 +163,13 @@ public class TelaReservas {
             System.out.print("ISBN do Livro: ");
             String isbn = scanner.nextLine().trim();
 
-            // TODO: Implementar nova reserva
+            br.edu.biblioteca.model.Reserva reserva = new br.edu.biblioteca.model.Reserva();
+            reserva.setUsuarioId(usuarioId);
+            reserva.setIsbnLivro(isbn);
+            reserva.setDataReserva(java.time.LocalDate.now());
+            reserva.setStatus(br.edu.biblioteca.model.Reserva.StatusReserva.RESERVADO);
+            
+            reservaRepository.salvar(reserva);
             System.out.println("\n✓ Reserva realizada com sucesso!");
         } catch (Exception e) {
             System.out.println("✗ Erro: " + e.getMessage());

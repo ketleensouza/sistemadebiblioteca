@@ -1,5 +1,6 @@
 package br.edu.biblioteca.ui;
 
+import br.edu.biblioteca.model.Livro;
 import br.edu.biblioteca.repository.LivroRepository;
 import java.util.Scanner;
 
@@ -105,23 +106,44 @@ public class TelaCatalogo {
     private void cadastrarLivro() {
         System.out.print("\nISBN: ");
         String isbn = scanner.nextLine().trim();
+        
+        if (isbn.isEmpty()) {
+            System.out.println("✗ ISBN não pode estar vazio!");
+            pausa();
+            return;
+        }
+        
         System.out.print("Título: ");
         String titulo = scanner.nextLine().trim();
+        
         System.out.print("Ano de publicação: ");
         Integer ano = null;
         try {
-            ano = Integer.parseInt(scanner.nextLine().trim());
+            String anoStr = scanner.nextLine().trim();
+            if (!anoStr.isEmpty()) {
+                ano = Integer.parseInt(anoStr);
+            }
         } catch (NumberFormatException e) {
-            // Ignora
+            System.out.println("⚠️  Ano inválido, usando sem data.");
         }
-        System.out.print("Palavras-chave: ");
+        
+        System.out.print("Palavras-chave (opcional): ");
         String palavrasChave = scanner.nextLine().trim();
 
         try {
-            // TODO: Implementar salvamento
+            Livro livro = new Livro();
+            livro.setIsbn(isbn);
+            livro.setTitulo(titulo);
+            if (ano != null) {
+                livro.setAno(ano);
+            }
+            if (!palavrasChave.isEmpty()) {
+                livro.setPalavrasChave(palavrasChave);
+            }
+            livroRepository.salvar(livro);
             System.out.println("\n✓ Livro cadastrado com sucesso!");
         } catch (Exception e) {
-            System.out.println("✗ Erro: " + e.getMessage());
+            System.out.println("✗ Erro ao cadastrar: " + e.getMessage());
         }
         pausa();
     }
@@ -129,21 +151,43 @@ public class TelaCatalogo {
     private void atualizarLivro() {
         System.out.print("\nDigite o ISBN do livro: ");
         String isbn = scanner.nextLine().trim();
-        System.out.print("Novo título: ");
-        String titulo = scanner.nextLine().trim();
-        System.out.print("Novo ano: ");
-        Integer ano = null;
+        
         try {
-            ano = Integer.parseInt(scanner.nextLine().trim());
-        } catch (NumberFormatException e) {
-            // Ignora
-        }
-
-        try {
-            // TODO: Implementar atualização
+            var livroOpt = livroRepository.buscarPorIsbn(isbn);
+            if (!livroOpt.isPresent()) {
+                System.out.println("\n✗ Livro não encontrado.");
+                pausa();
+                return;
+            }
+            
+            Livro livro = livroOpt.get();
+            
+            System.out.print("Novo título (atual: " + livro.getTitulo() + "): ");
+            String titulo = scanner.nextLine().trim();
+            if (!titulo.isEmpty()) {
+                livro.setTitulo(titulo);
+            }
+            
+            System.out.print("Novo ano (atual: " + livro.getAno() + "): ");
+            try {
+                String anoStr = scanner.nextLine().trim();
+                if (!anoStr.isEmpty()) {
+                    livro.setAno(Integer.parseInt(anoStr));
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("⚠️  Ano inválido, mantendo anterior.");
+            }
+            
+            System.out.print("Palavras-chave (atual: " + (livro.getPalavrasChave() != null ? livro.getPalavrasChave() : "n/a") + "): ");
+            String palavras = scanner.nextLine().trim();
+            if (!palavras.isEmpty()) {
+                livro.setPalavrasChave(palavras);
+            }
+            
+            livroRepository.atualizar(livro);
             System.out.println("\n✓ Livro atualizado com sucesso!");
         } catch (Exception e) {
-            System.out.println("✗ Erro: " + e.getMessage());
+            System.out.println("✗ Erro ao atualizar: " + e.getMessage());
         }
         pausa();
     }

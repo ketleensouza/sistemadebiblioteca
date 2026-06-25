@@ -134,7 +134,14 @@ public class TelaUsuarios {
         String email = scanner.nextLine().trim();
         System.out.println("Tipo (1-ALUNO, 2-PROFESSOR, 3-SERVIDOR):");
         try {
-            // TODO: Implementar salvamento
+            int tipoInt = Integer.parseInt(scanner.nextLine().trim());
+            br.edu.biblioteca.model.Usuario.TipoUsuario tipo = br.edu.biblioteca.model.Usuario.TipoUsuario.values()[tipoInt - 1];
+            
+            br.edu.biblioteca.model.Usuario usuario = new br.edu.biblioteca.model.Usuario();
+            usuario.setNome(nome);
+            usuario.setEmail(email);
+            usuario.setTipo(tipo);
+            usuarioRepository.salvar(usuario);
             System.out.println("\n✓ Usuário cadastrado com sucesso!");
         } catch (Exception e) {
             System.out.println("✗ Erro: " + e.getMessage());
@@ -151,8 +158,16 @@ public class TelaUsuarios {
             System.out.print("Novo email: ");
             String email = scanner.nextLine().trim();
 
-            // TODO: Implementar atualização
-            System.out.println("\n✓ Usuário atualizado com sucesso!");
+            var usuario = usuarioRepository.buscarPorId(id);
+            if (usuario.isPresent()) {
+                var u = usuario.get();
+                u.setNome(nome);
+                u.setEmail(email);
+                usuarioRepository.salvar(u);
+                System.out.println("\n✓ Usuário atualizado com sucesso!");
+            } else {
+                System.out.println("\n✗ Usuário não encontrado.");
+            }
         } catch (Exception e) {
             System.out.println("✗ Erro: " + e.getMessage());
         }

@@ -141,9 +141,14 @@ public class TelaEmprestimos {
             System.out.print("ID do Exemplar: ");
             Long exemplarId = Long.parseLong(scanner.nextLine().trim());
             System.out.print("Dias para devolução (ex: 14): ");
-            scanner.nextLine(); // Consome o input de dias
+            int dias = Integer.parseInt(scanner.nextLine().trim());
 
-            // TODO: Implementar novo empréstimo
+            br.edu.biblioteca.model.Emprestimo emprestimo = new br.edu.biblioteca.model.Emprestimo();
+            emprestimo.setUsuarioId(usuarioId);
+            emprestimo.setExemplarId(exemplarId);
+            emprestimo.setDataEmprestimo(java.time.LocalDate.now());
+            emprestimo.setDataPrevista(java.time.LocalDate.now().plusDays(dias));
+            emprestimoRepository.salvar(emprestimo);
             System.out.println("\n✓ Empréstimo registrado com sucesso!");
         } catch (Exception e) {
             System.out.println("✗ Erro: " + e.getMessage());
@@ -157,7 +162,9 @@ public class TelaEmprestimos {
             Long id = Long.parseLong(scanner.nextLine().trim());
             var emprestimo = emprestimoRepository.buscarPorId(id);
             if (emprestimo.isPresent()) {
-                // TODO: Implementar registro de devolução
+                var e = emprestimo.get();
+                e.setDataDevolucao(java.time.LocalDate.now());
+                emprestimoRepository.salvar(e);
                 System.out.println("\n✓ Devolução registrada com sucesso!");
             } else {
                 System.out.println("\n✗ Empréstimo não encontrado.");
