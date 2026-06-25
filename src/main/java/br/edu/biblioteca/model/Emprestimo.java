@@ -61,6 +61,10 @@ public class Emprestimo {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Long getUsuarioId() {
         return usuarioId;
     }

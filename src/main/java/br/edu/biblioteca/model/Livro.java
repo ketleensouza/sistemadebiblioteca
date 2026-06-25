@@ -66,6 +66,10 @@ public class Livro {
         return isbn;
     }
 
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
     public String getTitulo() {
         return titulo;
     }
