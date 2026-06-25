@@ -90,11 +90,4 @@ mvn clean
 rm -rf data/
 ```
 
----
 
-## Documentação
-
-- [QUICK_START.md](QUICK_START.md) - Iniciar em 3 passos
-- [GUIA_TESTE.md](GUIA_TESTE.md) - Exemplos de uso
-- [INSTALACAO.md](INSTALACAO.md) - Instalação de dependências
-- [DOCUMENTACAO.md](DOCUMENTACAO.md) - Índice de guias 
