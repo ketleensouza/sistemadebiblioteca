@@ -1,6 +1,8 @@
-# 📚 Sistema de Biblioteca
+# Sistema de Biblioteca
 
 Sistema de gestão de biblioteca em Java com interface CLI, persistência em CSV e estruturas de dados customizadas.
+
+Alunos: Ketleen de Souza Santos, Arthur Xavier dos Santos, Kenedy Anderson Souza de Castro.
 
 ---
 
@@ -75,7 +77,7 @@ mvn test -Dtest=PilhaTest
 
 ---
 
-## 🛠️ Troubleshooting
+## Troubleshooting
 
 **Maven não encontrado:**
 ```bash
