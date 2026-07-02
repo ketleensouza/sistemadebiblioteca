@@ -2,8 +2,7 @@
 
 Sistema de gestão de biblioteca em Java com interface CLI, persistência em CSV e estruturas de dados customizadas.
 
-Alunos: Ketleen de Souza Santos, Arthur Xavier dos Santos, Kenedy Anderson Souza de Castro.
-
+Alunos: Ketleen de Souza Santos
 ---
 
 ## Quick Start
